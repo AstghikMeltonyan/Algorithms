@@ -24,19 +24,21 @@ console.log(count);
 
 // recursion
 
-function binarRecursiv (arr,el, start, end) {
-    let mid = Math.floor((start+end)/2)
-    if ( start > end ) return -1
-    while ( start < end ) {
-        if ( el === arr[mid] ) {
-            return mid
-        }
-        if ( el < arr[mid]) {
-            return binarRecursiv (arr, el, start, mid -1)
-        }else {
-           return binarRecursiv ( arr, el, mid+1, end)
-        }
+function recursiveBinarySearch(array, item, start, end) {
+    let middle = Math.floor((start + end) / 2); // 3
+    
+    if(start > end) return -1;
+
+    if (item === array[middle]) {
+        return middle
     }
+    if (item < array[middle]) {
+        return recursiveBinarySearch(array, item, 0, middle - 1 )
+    } else {
+        return recursiveBinarySearch(array, item, middle + 1, end )
+    }
+   
 }
-console.log(binarRecursiv(arr,-5,0,arr.length));
+
+console.log(recursiveBinarySearch(array, 5, 0, array.length))
 
